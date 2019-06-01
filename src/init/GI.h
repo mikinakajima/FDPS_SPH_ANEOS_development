@@ -9,7 +9,8 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
 	public:
 	static const double END_TIME;
 	static void setupIC(PS::ParticleSystem<Ptcl>& sph_system, system_t& sysinfo, PS::DomainInfo& dinfo){
-		const bool createTarget = true;//set false if you make an impactor.
+		const bool createTarget = true;
+        const bool createImpactor = true;
 		const double Corr = .98;//Correction Term
 		/////////
 		//place ptcls
@@ -223,7 +224,8 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
 			for(PS::U32 i = 0 ; i < tar.size() ; ++ i){
 				ptcl.push_back(tar[i]);
 			}
-		}else{
+		}
+        if(createImpactor == true){
 			for(PS::U32 i = 0 ; i < imp.size() ; ++ i){
 				ptcl.push_back(imp[i]);
 			}
