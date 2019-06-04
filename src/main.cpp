@@ -1,5 +1,7 @@
 #include <particle_simulator.hpp>
 
+int mode;
+
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>

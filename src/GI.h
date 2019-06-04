@@ -27,7 +27,7 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
 		PS::F64 coreFracRadi = parameter_file.getValueOf("coreFracRadi", 3500.0e+3 / 6400.0e+3);
 		PS::F64 coreFracMass = parameter_file.getValueOf("coreFracMass", 0.3);
 		PS::F64 imptarMassRatio = parameter_file.getValueOf("imptarMassRatio", 0.1);
-        int mode = parameter_file.getValueOf("mode",0);
+        mode = parameter_file.getValueOf("mode",0);
         PS::F64 impVel = parameter_file.getValueOf("impVel",0);
         
 		
