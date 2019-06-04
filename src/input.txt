@@ -8,4 +8,4 @@ imptarMassRatio = 0.2 # impator-to-target mass ratio
 mode = 1   # target on only, use to get tar.dat
 #mode = 2   # impactor on only, use to get imp.dat
 
-impVel = 50000
+impVel = 0

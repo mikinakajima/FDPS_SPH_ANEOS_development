@@ -28,7 +28,7 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
 		PS::F64 coreFracMass = parameter_file.getValueOf("coreFracMass", 0.3);
 		PS::F64 imptarMassRatio = parameter_file.getValueOf("imptarMassRatio", 0.1);
         int mode = parameter_file.getValueOf("mode",0);
-        PS::F64 impVel = parameter_file.getValueOf("impVel",1000000);
+        PS::F64 impVel = parameter_file.getValueOf("impVel",0);
         
 		
 		/////////
@@ -196,9 +196,6 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
                             ith.pos.x = Expand * UnitRadi * x + offset;
                             ith.pos.y = Expand * UnitRadi * y;
                             ith.pos.z = Expand * UnitRadi * z;
-                            ith.vel.x = (-1) * impVel;
-                            ith.vel.y = 0;
-                            ith.vel.z = 0;
                             ith.dens = (impMass - impCoreMass) / (4.0 / 3.0 * math::pi * (impRadi * impRadi * impRadi - impCoreRadi * impCoreRadi * impCoreRadi));
                             ith.mass = tarMass + impMass;
                             ith.eng  = 0.1 * Grav * tarMass / tarRadi;
@@ -219,9 +216,6 @@ template <class Ptcl> class GI : public Problem<Ptcl>{
                             ith.pos.x = Expand * impCoreShrinkFactor * UnitRadi * x + offset;
                             ith.pos.y = Expand * impCoreShrinkFactor * UnitRadi * y;
                             ith.pos.z = Expand * impCoreShrinkFactor * UnitRadi * z;
-                            ith.vel.x = (-1) * impVel;
-                            ith.vel.y = 0;
-                            ith.vel.z = 0;
                             ith.dens = impCoreMass / (4.0 / 3.0 * math::pi * impCoreRadi * impCoreRadi * impCoreRadi * Corr * Corr * Corr);
                             ith.mass = tarMass + impMass;
                             ith.eng  = 0.1 * Grav * tarMass / tarRadi;
